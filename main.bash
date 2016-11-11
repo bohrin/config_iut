@@ -26,6 +26,7 @@ xdg-mime default ristretto.desktop image image/gif image/jpeg image/png image/ti
 xdg-user-dirs-update
 cp /usr/share/applications/firefox-esr.desktop "$(xdg-user-dir DESKTOP)"
 chmod u+x "$(xdg-user-dir DESKTOP)/firefox-esr.desktop"
+sed -i "s|~|$(xdg-user-dir HOME)|g" "$(xdg-user-dir HOME)/.cache/atom/atom.desktop"
 cp "$(xdg-user-dir HOME)/.cache/atom/atom.desktop" "$(xdg-user-dir DESKTOP)"
 chmod u+x "$(xdg-user-dir DESKTOP)/atom.desktop"
 
