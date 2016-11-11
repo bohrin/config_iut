@@ -1,12 +1,12 @@
 #!/bin/bash
 
 mkdir work
-cd work
+cd work || exit
 mkdir home_copy
 
 function install_arc_theme {
 	git clone https://github.com/horst3180/arc-theme --depth 1
-	cd arc-theme
+	cd arc-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make install
@@ -21,7 +21,7 @@ function install_theme {
 
 function install_faba_icon_theme {
 	git clone https://github.com/snwh/faba-icon-theme.git
-	cd faba-icon-theme
+	cd faba-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make
@@ -33,7 +33,7 @@ function install_faba_icon_theme {
 
 function install_faba_mono_icon_theme {
 	git clone https://github.com/snwh/faba-mono-icons.git
-	cd faba-mono-icons
+	cd faba-mono-icons || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make
@@ -46,7 +46,7 @@ function install_faba_mono_icon_theme {
 
 function install_moka_icon_theme {
 	git clone https://github.com/moka-project/moka-icon-theme.git
-	cd moka-icon-theme
+	cd moka-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make
@@ -58,7 +58,7 @@ function install_moka_icon_theme {
 
 function install_arc_icon_theme {
 	git clone https://github.com/horst3180/arc-icon-theme --depth 1
-	cd arc-icon-theme
+	cd arc-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make install
@@ -95,7 +95,8 @@ Type=Application" > "home_copy/.cache/atom/atom.desktop"
 
 function install_atom_extentions {
 	mkdir -p home_copy/.atom/
-	export ATOM_HOME="$(realpath home_copy/.atom/)"
+	ATOM_HOME="$(realpath home_copy/.atom/)"
+	export ATOM_HOME
 	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-extentions.txt
 }
 
