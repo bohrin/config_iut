@@ -81,7 +81,6 @@ function install_atom {
 	tar -zvxf "atom-amd64.tar.gz"
 	mv atom-"$atom_version-amd64"/* home_copy/.cache/atom
 
-	mkdir -p "home_copy/Desktop"
 	echo "[Desktop Entry]
 Encoding=UTF-8
 Name=Atom
@@ -112,3 +111,5 @@ install_atom_extentions
 
 cp ../main.bash home_copy/.cache/
 tar -cJf home_package.tar.xz -C home_copy .
+mv home_package.tar.xz ../
+

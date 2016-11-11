@@ -23,6 +23,7 @@ xdg-mime default Thunar.desktop inode/directory
 xdg-mime default mousepad.desktop text text/css text/csv text/html text/plain text/xml text/x-h text/x-c
 xdg-mime default ristretto.desktop image image/gif image/jpeg image/png image/tiff
 
+xdg-user-dirs-update
 cp /usr/share/applications/firefox-esr.desktop "$(xdg-user-dir DESKTOP)"
 chmod u+x "$(xdg-user-dir DESKTOP)/firefox-esr.desktop"
 cp "$(xdg-user-dir HOME)/.cache/atom/atom.desktop" "$(xdg-user-dir DESKTOP)"
