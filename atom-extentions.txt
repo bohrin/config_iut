@@ -1,0 +1,17 @@
+atom-html-preview
+color-picker
+linter
+minimap
+minimap-bookmarks
+minimap-cursorline
+minimap-find-and-replace
+minimap-git-diff
+minimap-highlight-selected
+minimap-selection
+random
+script
+switch-header-source
+webbox-color
+qolor
+data-atom
+
