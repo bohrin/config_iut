@@ -19,9 +19,13 @@ xfconf-query -n -c xfce4-panel -p /plugins/plugin-1/show-button-title -t bool -s
 xfconf-query -n -c xfce4-panel -p /plugins/plugin-1/button-icon -t string -s debian-logo
 xfconf-query -n -c xfce4-panel -p /plugins/plugin-4/rows -t int -s 2
 
+mkdir -p "$(xdg-user-dir HOME)/.local/share/applications/"
 xdg-mime default Thunar.desktop inode/directory
-xdg-mime default mousepad.desktop text text/css text/csv text/html text/plain text/xml text/x-h text/x-c
-xdg-mime default ristretto.desktop image image/gif image/jpeg image/png image/tiff
+xdg-mime default mousepad.desktop text/css text/csv text/html text/plain text/xml text/x-h text/x-c
+xdg-mime default ristretto.desktop image/png image/gif image/jpeg image/bmp image/x-pixmap image/tiff image/svg+xml image/x-xpixmap
+xdg-mime default evince.desktop application/pdf application/x-bzpdf application/x-gzpdf application/x-xzpdf application/x-ext-pdf application/postscript application/x-bzpostscript application/x-gzpostscript image/x-eps image/x-bzeps image/x-gzeps application/x-ext-ps application/x-ext-eps application/x-dvi application/x-bzdvi application/x-gzdvi application/x-ext-dvi image/vnd.djvu application/x-ext-djv application/x-ext-djvu image/tiff application/x-cbr application/x-cbz application/x-cb7 application/x-cbt application/x-ext-cbr application/x-ext-cbz application/x-ext-cb7 application/x-ext-cbt application/oxps application/vnd.ms-xpsdocument
+xdg-mime default xarchiver.desktop application/x-arj application/arj application/x-bzip application/x-bzip-compressed-tar application/x-gzip application/x-rar application/x-rar-compressed application/x-tar application/x-zip application/x-zip-compressed application/zip application/x-7z-compressed application/x-compressed-tar application/x-bzip2 application/x-bzip2-compressed-tar application/x-lzma-compressed-tar application/x-lzma application/x-deb application/deb application/x-xz application/x-xz-compressed-tar
+cp -f "$(xdg-user-dir HOME)/.local/share/applications/mimeapps.list" "$(xdg-user-dir HOME)/.config/"
 
 xdg-user-dirs-update
 cp /usr/share/applications/firefox-esr.desktop "$(xdg-user-dir DESKTOP)"
@@ -30,6 +34,9 @@ sed -i "s|~|$(xdg-user-dir HOME)|g" "$(xdg-user-dir HOME)/.cache/atom/atom.deskt
 cp "$(xdg-user-dir HOME)/.cache/atom/atom.desktop" "$(xdg-user-dir DESKTOP)"
 chmod u+x "$(xdg-user-dir DESKTOP)/atom.desktop"
 
+echo "WebBrowser=firefox" > "$HOME/.config/xfce4/helpers.rc"
+echo "FileManager=Thunar" >> "$HOME/.config/xfce4/helpers.rc"
+echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 #if file exist
 #sed -i 's/\(FileManager=\).*/\1Thunar/' $HOME/.config/xfce4/helpers.rc
 #sed -i 's/\(TerminalEmulator=\).*/\1xfce4-terminal/' $HOME/.config/xfce4/helpers.rc
