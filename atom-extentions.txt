@@ -1,5 +1,5 @@
-activate-power-mode
 atom-beautify
+atom-bootstrap3
 atom-hg
 atom-html-preview
 atom-pair
@@ -14,11 +14,9 @@ git-control
 git-plus
 git-time-machine
 language-cmake
-language-cpp14
 language-qtpro
 linter
 linter-clang
-linter-shellcheck
 minimap
 minimap-bookmarks
 minimap-cursorline
@@ -31,5 +29,4 @@ random
 script
 svn
 switch-header-source
-sync-settings
 webbox-color
