@@ -75,7 +75,7 @@ function install_icon_theme {
 }
 
 function install_atom {
-	atom_version="1.12.1"
+	atom_version="1.12.6"
 	mkdir -p home_copy/.cache/atom
 	wget -c "https://github.com/atom/atom/releases/download/v$atom_version/atom-amd64.tar.gz"
 	tar -zvxf "atom-amd64.tar.gz"
