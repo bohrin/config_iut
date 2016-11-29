@@ -3,11 +3,9 @@ atom-bootstrap3
 atom-hg
 atom-html-preview
 atom-pair
-autocomplete-clang
 autocomplete-cmake
 build-cmake
 build-make
-clang-format
 color-picker
 data-atom
 git-control
@@ -16,7 +14,7 @@ git-time-machine
 language-cmake
 language-qtpro
 linter
-linter-clang
+linter-shellcheck
 minimap
 minimap-bookmarks
 minimap-cursorline
