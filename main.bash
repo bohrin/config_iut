@@ -46,3 +46,5 @@ echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 #sed -i 's/\(FileManager=\).*/\1Thunar/' $HOME/.config/xfce4/helpers.rc
 #sed -i 's/\(TerminalEmulator=\).*/\1xfce4-terminal/' $HOME/.config/xfce4/helpers.rc
 #sed -i 's/\(WebBrowser=\).*/\1firefox/' $HOME/.config/xfce4/helpers.rc
+
+sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"

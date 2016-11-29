@@ -97,6 +97,9 @@ function install_atom_extentions {
 	ATOM_HOME="$(realpath home_copy/.atom/)"
 	export ATOM_HOME
 	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-extentions.txt
+
+	#data-atom config file
+	cp ../data-atom-connections.cson home_copy/.atom/
 }
 
 function install_software {
@@ -112,4 +115,3 @@ install_atom_extentions
 cp ../main.bash home_copy/.cache/
 tar -cJf home_package.tar.xz -C home_copy .
 mv home_package.tar.xz ../
-

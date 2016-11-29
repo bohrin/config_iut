@@ -24,7 +24,6 @@ minimap-find-and-replace
 minimap-git-diff
 minimap-highlight-selected
 minimap-selection
-qolor
 random
 script
 svn
