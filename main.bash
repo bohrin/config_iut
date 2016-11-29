@@ -48,3 +48,5 @@ echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 #sed -i 's/\(WebBrowser=\).*/\1firefox/' $HOME/.config/xfce4/helpers.rc
 
 sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"
+
+echo "export PATH=$PATH:$HOME/bin" >> "$HOME/.bashrc"

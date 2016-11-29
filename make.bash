@@ -102,9 +102,18 @@ function install_atom_extentions {
 	cp ../data-atom-connections.cson home_copy/.atom/
 }
 
+function install_shellcheck {
+	mkdir -p home_copy/bin
+	shellcheck_version="0.4.4-4"
+	wget http://ftp.fr.debian.org/debian/pool/main/s/shellcheck/shellcheck_"$shellcheck_version"_amd64.deb
+	dpkg -x shellcheck_"$shellcheck_version"_amd64.deb install
+	mv install/usr/bin/shellcheck home_copy/bin/
+}
+
 function install_software {
 	install_atom
 	install_atom_extentions
+	install_shellcheck
 }
 
 install_theme
