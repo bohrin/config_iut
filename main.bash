@@ -7,7 +7,7 @@ xfconf-query -n -c xsettings -p /Net/ThemeName -t string -s "$THEME"
 xfconf-query -n -c xsettings -p /Net/IconThemeName -t string -s Arc
 
 xfconf-query -n -c xfwm4 -p /general/theme -t string -s "$THEME"
-xfconf-query -n -c xfwm4 -p /general/use_compositing -t bool -s true
+xfconf-query -n -c xfwm4 -p /general/use_compositing -t bool -s false
 xfconf-query -n -c xfwm4 -p /general/show_frame_shadow -t bool -s true
 xfconf-query -n -c xfwm4 -p /general/show_popup_shadow -t bool -s true
 xfconf-query -n -c xfwm4 -p /general/workspace_count -t int -s 2
@@ -19,6 +19,11 @@ xfconf-query -n -c xfce4-panel -p /panels/panel-2/autohide -t bool -s true
 xfconf-query -n -c xfce4-panel -p /plugins/plugin-1/show-button-title -t bool -s false
 xfconf-query -n -c xfce4-panel -p /plugins/plugin-1/button-icon -t string -s debian-logo
 xfconf-query -n -c xfce4-panel -p /plugins/plugin-4/rows -t int -s 2
+
+xfconf-query -n -c xfce4-desktop -p /desktop-icons/file-icons/show-filesystem -t bool -s false
+xfconf-query -n -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -t bool -s false
+
+xfconf-query -n -c xfce4-session -p /general/SaveOnExit -t bool -s false
 
 mkdir -p "$HOME/.local/share/applications/"
 xdg-mime default Thunar.desktop inode/directory
