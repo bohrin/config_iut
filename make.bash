@@ -78,7 +78,7 @@ function install_atom {
 	atom_version="1.12.6"
 	mkdir -p home_copy/.cache/atom
 	wget -c "https://github.com/atom/atom/releases/download/v$atom_version/atom-amd64.tar.gz"
-	tar -zvxf "atom-amd64.tar.gz"
+	tar -zxf "atom-amd64.tar.gz"
 	mv atom-"$atom_version-amd64"/* home_copy/.cache/atom
 
 	echo "[Desktop Entry]
@@ -103,11 +103,15 @@ function install_atom_extentions {
 }
 
 function install_shellcheck {
-	mkdir -p home_copy/bin
+	mkdir shellcheck
+	cd shellcheck || exit
 	shellcheck_version="0.4.4-4"
 	wget http://ftp.fr.debian.org/debian/pool/main/s/shellcheck/shellcheck_"$shellcheck_version"_amd64.deb
-	dpkg -x shellcheck_"$shellcheck_version"_amd64.deb install
-	mv install/usr/bin/shellcheck home_copy/bin/
+	ar x shellcheck_"$shellcheck_version"_amd64.deb
+	tar -xf data.tar.xz
+	mkdir -p ../home_copy/bin
+	mv usr/bin/shellcheck ../home_copy/bin/
+	cd ..
 }
 
 function install_software {
@@ -119,7 +123,6 @@ function install_software {
 install_theme
 install_icon_theme
 install_software
-install_atom_extentions
 
 cp ../main.bash home_copy/.cache/
 tar -cJf home_package.tar.xz -C home_copy .
