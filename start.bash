@@ -8,7 +8,7 @@ else
   last_release="$(git ls-remote --tags "https://github.com/L0L022/config_iut" | sed "s|.*refs/tags/\(.*\)$|\1|g" | sort -V | tail -n 1)"
   if [ "$last_release" ]; then
     echo "$last_release"
-    curl -o "$HOME/.cache/$package" https://github.com/L0L022/config_iut/releases/download/"$last_release"/"$package"
+    curl -sL -C - -o "$HOME/.cache/$package" https://github.com/L0L022/config_iut/releases/download/"$last_release"/"$package"
     tar --xz --extract --file "$HOME/.cache/$package" --directory "$HOME"
   else
     echo "release not found at https://github.com/L0L022/config_iut"
