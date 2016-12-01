@@ -4,8 +4,23 @@ mkdir work
 cd work || exit
 mkdir home_copy
 
+function get_source {
+	user_depo="$1"
+	depo="$(basename "$user_depo")"
+	github_url="https://github.com/$user_depo"
+	last_release="$(git ls-remote --tags "$github_url" | sed "s|.*refs/tags/\(.*\)$|\1|g" | grep -v "beta" | grep -v "alpha" | sort -V | tail -n 1)"
+	if [ -z "$last_release" ]; then
+		last_release="master"
+	fi
+	echo "last_release=$last_release"
+	wget -O "$depo.tar.gz" "$github_url/archive/$last_release.tar.gz"
+	mkdir "$depo"
+	tar xzf "$depo.tar.gz" -C "$depo" --strip-components=1
+}
+
 function install_arc_theme {
-	git clone https://github.com/horst3180/arc-theme --depth 1
+	#git clone https://github.com/horst3180/arc-theme --depth 1
+	get_source "horst3180/arc-theme"
 	cd arc-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
@@ -20,7 +35,8 @@ function install_theme {
 }
 
 function install_faba_icon_theme {
-	git clone https://github.com/snwh/faba-icon-theme.git
+	#git clone https://github.com/snwh/faba-icon-theme.git
+	get_source "snwh/faba-icon-theme"
 	cd faba-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
@@ -32,7 +48,8 @@ function install_faba_icon_theme {
 }
 
 function install_faba_mono_icon_theme {
-	git clone https://github.com/snwh/faba-mono-icons.git
+	#git clone https://github.com/snwh/faba-mono-icons.git
+	get_source "snwh/faba-mono-icons"
 	cd faba-mono-icons || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
@@ -45,7 +62,8 @@ function install_faba_mono_icon_theme {
 
 
 function install_moka_icon_theme {
-	git clone https://github.com/moka-project/moka-icon-theme.git
+	#git clone https://github.com/moka-project/moka-icon-theme.git
+	get_source "moka-project/moka-icon-theme"
 	cd moka-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
@@ -58,7 +76,8 @@ function install_moka_icon_theme {
 }
 
 function install_arc_icon_theme {
-	git clone https://github.com/horst3180/arc-icon-theme --depth 1
+	#git clone https://github.com/horst3180/arc-icon-theme --depth 1
+	get_source "horst3180/arc-icon-theme"
 	cd arc-icon-theme || exit
 	mkdir install
 	bash ./autogen.sh --prefix="$(realpath ./install)"
@@ -76,11 +95,11 @@ function install_icon_theme {
 }
 
 function install_atom {
-	atom_version="1.12.6"
+	atom_version="$(git ls-remote --tags "https://github.com/atom/atom/" | sed "s|.*refs/tags/\(.*\)$|\1|g" | grep -v "beta" | sort -V | tail -n 1)"
 	mkdir -p home_copy/.cache/atom
-	wget -c "https://github.com/atom/atom/releases/download/v$atom_version/atom-amd64.tar.gz"
+	wget "https://github.com/atom/atom/releases/download/$atom_version/atom-amd64.tar.gz"
 	tar -zxf "atom-amd64.tar.gz"
-	mv atom-"$atom_version-amd64"/* home_copy/.cache/atom
+	mv atom-*/* home_copy/.cache/atom
 
 	echo "[Desktop Entry]
 Encoding=UTF-8
