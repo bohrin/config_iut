@@ -1,0 +1,9 @@
+"*":
+  "atom-html-preview":
+    scrollToCursor: true
+  core:
+    automaticallyUpdate: false
+    openEmptyEditorOnStart: false
+    telemetryConsent: "limited"
+  welcome:
+    showOnStartup: false

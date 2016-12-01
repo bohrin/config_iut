@@ -118,8 +118,8 @@ function install_atom_packages {
 	export ATOM_HOME
 	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-packages.txt
 
-	#data-atom config file
-	cp ../data-atom-connections.cson home_copy/.atom/
+	#config files
+	cp ../config.cson ../data-atom-connections.cson home_copy/.atom/
 }
 
 function install_shellcheck {
