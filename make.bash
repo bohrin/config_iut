@@ -92,11 +92,11 @@ Type=Application" > "home_copy/.cache/atom/atom.desktop"
 	chmod u+x "home_copy/.cache/atom/atom.desktop"
 }
 
-function install_atom_extentions {
+function install_atom_packages {
 	mkdir -p home_copy/.atom/
 	ATOM_HOME="$(realpath home_copy/.atom/)"
 	export ATOM_HOME
-	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-extentions.txt
+	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-packages.txt
 
 	#data-atom config file
 	cp ../data-atom-connections.cson home_copy/.atom/
@@ -116,7 +116,7 @@ function install_shellcheck {
 
 function install_software {
 	install_atom
-	install_atom_extentions
+	install_atom_packages
 	install_shellcheck
 }
 
