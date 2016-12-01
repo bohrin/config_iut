@@ -51,6 +51,7 @@ function install_moka_icon_theme {
 	bash ./autogen.sh --prefix="$(realpath ./install)"
 	make
 	make install DESTDIR="$(realpath ./install)"
+	rm -R install/usr/share/icons/Moka/{*@2x,256x256}
 	mkdir ../home_copy/.icons
 	mv install/usr/share/icons/* ../home_copy/.icons/
 	cd ..
