@@ -1,15 +1,10 @@
 ask-stack
 atom-bootstrap3
-atom-build
 atom-html-preview
-autocomplete-cmake
-build-cmake
-build-make
 color-picker
 data-atom
 file-icons
 git-plus
-language-cmake
 linter
 linter-csslint
 linter-htmlhint
