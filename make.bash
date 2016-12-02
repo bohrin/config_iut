@@ -23,7 +23,7 @@ function install_arc_theme {
 	get_source "horst3180/arc-theme"
 	cd arc-theme || exit
 	mkdir install
-	bash ./autogen.sh --prefix="$(realpath ./install)"
+	bash ./autogen.sh --with-gnome=3.14 --prefix="$(realpath ./install)"
 	make install
 	mkdir ../home_copy/.themes
 	mv install/share/themes/* ../home_copy/.themes/
