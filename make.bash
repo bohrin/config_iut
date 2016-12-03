@@ -125,7 +125,7 @@ function install_atom_packages {
 function install_shellcheck {
 	mkdir shellcheck
 	cd shellcheck || exit
-	shellcheck_version="0.4.4-4"
+	shellcheck_version="0.3.4-3"
 	wget http://ftp.fr.debian.org/debian/pool/main/s/shellcheck/shellcheck_"$shellcheck_version"_amd64.deb
 	ar x shellcheck_"$shellcheck_version"_amd64.deb
 	tar -xf data.tar.xz
