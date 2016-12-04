@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf "$HOME/.cache/atom" "$HOME/.atom/" "$HOME/.icons" "$HOME/.themes"
+
 package="home_package.tar.xz"
 
 if [ -f "$package" ]; then

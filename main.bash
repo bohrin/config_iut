@@ -28,27 +28,23 @@ xfconf-query -n -c xfce4-session -p /general/SaveOnExit -t bool -s false
 xfconf-query -n -c thunar-volman -p /autobrowse/enabled -t bool -s true
 xfconf-query -n -c thunar-volman -p /automount-media/enabled -t bool -s true
 
-mkdir -p "$HOME/.local/share/applications/"
-xdg-mime default Thunar.desktop inode/directory
-xdg-mime default mousepad.desktop text/css text/csv text/html text/plain text/xml text/x-h text/x-c
-xdg-mime default ristretto.desktop image/png image/gif image/jpeg image/bmp image/x-pixmap image/tiff image/svg+xml image/x-xpixmap
-xdg-mime default evince.desktop application/pdf application/x-bzpdf application/x-gzpdf application/x-xzpdf application/x-ext-pdf application/postscript application/x-bzpostscript application/x-gzpostscript image/x-eps image/x-bzeps image/x-gzeps application/x-ext-ps application/x-ext-eps application/x-dvi application/x-bzdvi application/x-gzdvi application/x-ext-dvi image/vnd.djvu application/x-ext-djv application/x-ext-djvu image/tiff application/x-cbr application/x-cbz application/x-cb7 application/x-cbt application/x-ext-cbr application/x-ext-cbz application/x-ext-cb7 application/x-ext-cbt application/oxps application/vnd.ms-xpsdocument
-xdg-mime default xarchiver.desktop application/x-arj application/arj application/x-bzip application/x-bzip-compressed-tar application/x-gzip application/x-rar application/x-rar-compressed application/x-tar application/x-zip application/x-zip-compressed application/zip application/x-7z-compressed application/x-compressed-tar application/x-bzip2 application/x-bzip2-compressed-tar application/x-lzma-compressed-tar application/x-lzma application/x-deb application/deb application/x-xz application/x-xz-compressed-tar
-cp -f "$HOME/.local/share/applications/mimeapps.list" "$HOME/.config/"
-
 xdg-user-dirs-update
 cp /usr/share/applications/{firefox-esr,libreoffice-startcenter,scilab,chromium,kde4/kcalc,exo-terminal-emulator}.desktop "$DESKTOP"
 sed -i "s|~|$HOME|g" "$HOME/.local/share/applications/atom.desktop"
 cp "$HOME/.local/share/applications/atom.desktop" "$DESKTOP"
 chmod u+x "$DESKTOP"/*
 
+mkdir -p "$HOME/.local/share/applications/"
+xdg-mime default Thunar.desktop inode/directory
+xdg-mime default atom.desktop text/css text/csv text/html text/plain text/xml text/x-h text/x-c
+xdg-mime default ristretto.desktop image/png image/gif image/jpeg image/bmp image/x-pixmap image/tiff image/svg+xml image/x-xpixmap
+xdg-mime default evince.desktop application/pdf application/x-bzpdf application/x-gzpdf application/x-xzpdf application/x-ext-pdf application/postscript application/x-bzpostscript application/x-gzpostscript image/x-eps image/x-bzeps image/x-gzeps application/x-ext-ps application/x-ext-eps application/x-dvi application/x-bzdvi application/x-gzdvi application/x-ext-dvi image/vnd.djvu application/x-ext-djv application/x-ext-djvu image/tiff application/x-cbr application/x-cbz application/x-cb7 application/x-cbt application/x-ext-cbr application/x-ext-cbz application/x-ext-cb7 application/x-ext-cbt application/oxps application/vnd.ms-xpsdocument
+xdg-mime default xarchiver.desktop application/x-arj application/arj application/x-bzip application/x-bzip-compressed-tar application/x-gzip application/x-rar application/x-rar-compressed application/x-tar application/x-zip application/x-zip-compressed application/zip application/x-7z-compressed application/x-compressed-tar application/x-bzip2 application/x-bzip2-compressed-tar application/x-lzma-compressed-tar application/x-lzma application/x-deb application/deb application/x-xz application/x-xz-compressed-tar
+cp -f "$HOME/.local/share/applications/mimeapps.list" "$HOME/.config/"
+
 echo "WebBrowser=firefox" > "$HOME/.config/xfce4/helpers.rc"
 echo "FileManager=Thunar" >> "$HOME/.config/xfce4/helpers.rc"
 echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
-#if file exist
-#sed -i 's/\(FileManager=\).*/\1Thunar/' $HOME/.config/xfce4/helpers.rc
-#sed -i 's/\(TerminalEmulator=\).*/\1xfce4-terminal/' $HOME/.config/xfce4/helpers.rc
-#sed -i 's/\(WebBrowser=\).*/\1firefox/' $HOME/.config/xfce4/helpers.rc
 
 sed -i "s|~|$HOME|g" "$HOME/.atom/config.cson"
 sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"
@@ -58,5 +54,5 @@ echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bash_profile
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bashrc
 
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
-echo "[Filechooser Settings]" >> "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
+echo "[Filechooser Settings]" > "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
 echo "StartupMode=cwd" >> "$HOME/.config/gtk-2.0/gtkfilechooser.ini"

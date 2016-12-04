@@ -13,7 +13,12 @@ function get_source {
 		last_release="master"
 	fi
 	echo "last_release=$last_release"
-	wget -O "$depo.tar.gz" "$github_url/archive/$last_release.tar.gz"
+	if [ ! -f "$depo.tar.gz" ]; then
+		wget -c -O "$depo.tar.gz" "$github_url/archive/$last_release.tar.gz"
+	fi
+	if [ -d "$depo" ]; then
+		rm -r "$depo"
+	fi
 	mkdir "$depo"
 	tar xzf "$depo.tar.gz" -C "$depo" --strip-components=1
 }
@@ -97,7 +102,9 @@ function install_icon_theme {
 function install_atom {
 	atom_version="$(git ls-remote --tags "https://github.com/atom/atom/" | sed "s|.*refs/tags/\(.*\)$|\1|g" | grep -v "beta" | sort -V | tail -n 1)"
 	mkdir -p home_copy/.cache/atom
-	wget "https://github.com/atom/atom/releases/download/$atom_version/atom-amd64.tar.gz"
+	if [ ! -f "atom-amd64.tar.gz" ]; then
+		wget -c "https://github.com/atom/atom/releases/download/$atom_version/atom-amd64.tar.gz"
+	fi
 	tar -zxf "atom-amd64.tar.gz"
 	mv atom-*/* home_copy/.cache/atom
 
@@ -120,7 +127,7 @@ function install_atom_packages {
 function install_shellcheck {
 	mkdir shellcheck
 	cd shellcheck || exit
-	wget -O shellcheck.tar.xz http://mir.archlinux.fr/community/os/x86_64/shellcheck-0.4.5-1-x86_64.pkg.tar.xz
+	wget -c -O shellcheck.tar.xz http://mir.archlinux.fr/community/os/x86_64/shellcheck-0.4.5-1-x86_64.pkg.tar.xz
 	tar -xf shellcheck.tar.xz
 	mkdir -p ../home_copy/bin
 	mv usr/bin/shellcheck ../home_copy/bin/
