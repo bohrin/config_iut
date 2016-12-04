@@ -50,3 +50,6 @@ echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"
 
 echo "export PATH=$PATH:$HOME/bin" >> "$HOME/.bashrc"
+
+gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+echo "StartupMode=cwd" >> "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
