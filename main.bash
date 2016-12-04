@@ -25,6 +25,9 @@ xfconf-query -n -c xfce4-desktop -p /desktop-icons/file-icons/show-trash -t bool
 
 xfconf-query -n -c xfce4-session -p /general/SaveOnExit -t bool -s false
 
+xfconf-query -n -c thunar-volman -p /autobrowse/enabled -t bool -s true
+xfconf-query -n -c thunar-volman -p /automount-media/enabled -t bool -s true
+
 mkdir -p "$HOME/.local/share/applications/"
 xdg-mime default Thunar.desktop inode/directory
 xdg-mime default mousepad.desktop text/css text/csv text/html text/plain text/xml text/x-h text/x-c
