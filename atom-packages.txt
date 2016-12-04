@@ -7,6 +7,7 @@ file-icons
 git-plus
 linter
 linter-csslint
+linter-gcc
 linter-htmlhint
 linter-shellcheck
 linter-stylelint

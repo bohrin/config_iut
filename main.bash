@@ -35,8 +35,8 @@ cp -f "$HOME/.local/share/applications/mimeapps.list" "$HOME/.config/"
 
 xdg-user-dirs-update
 cp /usr/share/applications/{firefox-esr,libreoffice-startcenter,scilab,chromium,kde4/kcalc,exo-terminal-emulator}.desktop "$DESKTOP"
-sed -i "s|~|$HOME|g" "$HOME/.cache/atom/atom.desktop"
-cp "$HOME/.cache/atom/atom.desktop" "$DESKTOP"
+sed -i "s|~|$HOME|g" "$HOME/.local/share/applications/atom.desktop"
+cp "$HOME/.local/share/applications/atom.desktop" "$DESKTOP"
 chmod u+x "$DESKTOP"/*
 
 echo "WebBrowser=firefox" > "$HOME/.config/xfce4/helpers.rc"

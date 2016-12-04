@@ -101,15 +101,10 @@ function install_atom {
 	tar -zxf "atom-amd64.tar.gz"
 	mv atom-*/* home_copy/.cache/atom
 
-	echo "[Desktop Entry]
-Encoding=UTF-8
-Name=Atom
-Exec=~/.cache/atom/atom
-Icon=~/.cache/atom/atom.png
-Terminal=false
-StartupNotify=true
-Type=Application" > "home_copy/.cache/atom/atom.desktop"
-	chmod u+x "home_copy/.cache/atom/atom.desktop"
+	mkdir -p home_copy/.local/share/{applications,icons}
+	cp home_copy/.atom/atom.png home_copy/.local/share/icons/
+	cp ../atom.desktop home_copy/.local/share/applications/
+	chmod u+x home_copy/.local/share/applications/
 }
 
 function install_atom_packages {
@@ -132,6 +127,17 @@ function install_shellcheck {
 	mkdir -p ../home_copy/bin
 	mv usr/bin/shellcheck ../home_copy/bin/
 	cd ..
+}
+
+function install_clang {
+	mkdir clang
+	cd clang || exit
+	wget -O "clang.tar.xz" "http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-debian8.tar.xz"
+	tar xJf "clang.tar.xz"
+	wget -O "libtinfo.deb" "http://ftp.fr.debian.org/debian/pool/main/n/ncurses/libtinfo5_5.9+20140913-1+b1_amd64.deb"
+	ar x "libtinfo.deb"
+	tar -xf data.tar.xz
+
 }
 
 function install_software {

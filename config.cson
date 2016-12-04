@@ -5,5 +5,8 @@
     automaticallyUpdate: false
     openEmptyEditorOnStart: false
     telemetryConsent: "limited"
+  "linter-gcc":
+    gccIncludePaths: "-"
+    gccLintOnTheFly: true
   welcome:
     showOnStartup: false
