@@ -120,24 +120,12 @@ function install_atom_packages {
 function install_shellcheck {
 	mkdir shellcheck
 	cd shellcheck || exit
-	shellcheck_version="0.3.4-3"
-	wget http://ftp.fr.debian.org/debian/pool/main/s/shellcheck/shellcheck_"$shellcheck_version"_amd64.deb
-	ar x shellcheck_"$shellcheck_version"_amd64.deb
-	tar -xf data.tar.xz
+	wget -O shellcheck.tar.xz http://mir.archlinux.fr/community/os/x86_64/shellcheck-0.4.5-1-x86_64.pkg.tar.xz
+	tar -xf shellcheck.tar.xz
 	mkdir -p ../home_copy/bin
 	mv usr/bin/shellcheck ../home_copy/bin/
+	chmod u+x ../home_copy/bin/shellcheck
 	cd ..
-}
-
-function install_clang {
-	mkdir clang
-	cd clang || exit
-	wget -O "clang.tar.xz" "http://llvm.org/releases/3.9.0/clang+llvm-3.9.0-x86_64-linux-gnu-debian8.tar.xz"
-	tar xJf "clang.tar.xz"
-	wget -O "libtinfo.deb" "http://ftp.fr.debian.org/debian/pool/main/n/ncurses/libtinfo5_5.9+20140913-1+b1_amd64.deb"
-	ar x "libtinfo.deb"
-	tar -xf data.tar.xz
-
 }
 
 function install_software {

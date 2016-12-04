@@ -8,5 +8,7 @@
   "linter-gcc":
     gccIncludePaths: "-"
     gccLintOnTheFly: true
+  "linter-shellcheck":
+    shellcheckExecutablePath: "~/bin/shellcheck"
   welcome:
     showOnStartup: false
