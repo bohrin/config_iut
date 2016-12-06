@@ -11,6 +11,7 @@ function install_package {
   bash "$HOME/.cache/main.bash"
 }
 
+repo_name="config_iut"
 package_name="home_package.tar.xz"
 package_location="$HOME/.cache/$package_name"
 package_version_location="$HOME/.cache/home_package_version"
@@ -22,11 +23,11 @@ else
   echo "package_installed_version: not found"
 fi
 
-package_latest_version="$(git ls-remote --tags "https://github.com/L0L022/config_iut" | sed "s|.*refs/tags/\(.*\)$|\1|g" | sort -V | tail -n 1)"
+package_latest_version="$(git ls-remote --tags "https://github.com/L0L022/$repo_name" | sed "s|.*refs/tags/\(.*\)$|\1|g" | sort -V | tail -n 1)"
 if [ "$package_latest_version" ]; then
   echo "package_latest_version: $package_latest_version"
 else
-  echo "package_latest_version: not found (https://github.com/L0L022/config_iut)"
+  echo "package_latest_version: not found (https://github.com/L0L022/$repo_name)"
 fi
 
 if [ -f "$package_name" ]; then
@@ -41,14 +42,14 @@ else
     if [ -f "$package_location" ]; then
       rm "$package_location"
     fi
-    curl -sL -o "$package_location" https://github.com/L0L022/config_iut/releases/download/"$package_latest_version"/"$package_name"
+    curl -sL -o "$package_location" "https://github.com/L0L022/$repo_name/releases/download/$package_latest_version/$package_name"
     install_package "$package_location"
     echo "$package_latest_version" > "$package_version_location"
   fi
 fi
 
 echo "install crazy_patch.bash"
-curl -sL -o "$HOME/.cache/crazy_patch.bash" "https://raw.githubusercontent.com/L0L022/config_iut/master/crazy_patch.bash"
+curl -sL -o "$HOME/.cache/crazy_patch.bash" "https://raw.githubusercontent.com/L0L022/$repo_name/master/crazy_patch.bash"
 bash "$HOME/.cache/crazy_patch.bash"
 
 echo "update atom packages"
