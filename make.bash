@@ -109,7 +109,7 @@ function install_atom {
 	mv atom-*/* home_copy/.cache/atom
 
 	mkdir -p home_copy/.local/share/{applications,icons}
-	cp home_copy/.atom/atom.png home_copy/.local/share/icons/
+	cp home_copy/.cache/atom/atom.png home_copy/.local/share/icons/
 	cp ../atom.desktop home_copy/.local/share/applications/
 	chmod u+x home_copy/.local/share/applications/
 }
