@@ -10,5 +10,8 @@
     gccLintOnTheFly: true
   "linter-shellcheck":
     shellcheckExecutablePath: "~/bin/shellcheck"
+  "linter-stylelint":
+    disableWhenNoConfig: false
+    useStandard: true
   welcome:
     showOnStartup: false
