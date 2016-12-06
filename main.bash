@@ -47,7 +47,6 @@ echo "FileManager=Thunar" >> "$HOME/.config/xfce4/helpers.rc"
 echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 
 sed -i "s|~|$HOME|g" "$HOME/.atom/config.cson"
-sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"
 
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.profile
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bash_profile

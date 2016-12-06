@@ -2,10 +2,7 @@
   {
     name: "iut"
     protocol: "postgresql"
-    user: "USER"
-    password: "USER!K2x"
     server: "a-pedagoarles-postgresql.aix.univ-amu.fr"
-    database: "USER"
     options: "ssl=true"
     port: "5432"
   }
