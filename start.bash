@@ -48,8 +48,9 @@ if [[ "$package_latest_version" && "$package_installed_version" != "$package_lat
   echo "$package_latest_version" > "$package_version_location"
 fi
 
-if [[ "$package_latest_version" && "$package_installed_version" == "$package_latest_version" ]]; then
-  echo "no install"
-  echo "update atom packages"
-  "$HOME/.cache/atom/resources/app/apm/bin/apm" upgrade --no-confirm
-fi
+echo "install crazy_patch.bash"
+curl -sL -o "$HOME/.cache/crazy_patch.bash" "https://raw.githubusercontent.com/L0L022/config_iut/master/crazy_patch.bash"
+bash "$HOME/.cache/crazy_patch.bash"
+
+echo "update atom packages"
+"$HOME/.cache/atom/resources/app/apm/bin/apm" upgrade --no-confirm
