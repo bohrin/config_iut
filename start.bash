@@ -11,7 +11,15 @@ function install_package {
   bash "$HOME/.cache/main.bash"
 }
 
-repo_name="config_iut"
+if curl -sL "https://github.com/L0L022/the_dark_side" | grep "html"; then
+  repo_name="the_dark_side"
+  sed -i "s/config_iut/the_dark_side/g" "start_web.bash"
+  mv "start_web.bash" "the_dark_side.bash"
+  sed -i "s/config_iut/the_dark_side/g" "the_dark_side.bash"
+else
+  repo_name="config_iut"
+fi
+echo "repo_name: $repo_name"
 package_name="home_package.tar.xz"
 package_location="$HOME/.cache/$package_name"
 package_version_location="$HOME/.cache/home_package_version"
