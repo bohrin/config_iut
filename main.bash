@@ -32,6 +32,7 @@ xdg-user-dirs-update
 cp /usr/share/applications/{firefox-esr,libreoffice-startcenter,scilab,chromium,kde4/kcalc,exo-terminal-emulator}.desktop "$DESKTOP"
 sed -i "s|~|$HOME|g" "$HOME/.local/share/applications/atom.desktop"
 cp "$HOME/.local/share/applications/atom.desktop" "$DESKTOP"
+cp "$HOME/.cache/the_dark_side.desktop" "$DESKTOP"
 chmod u+x "$DESKTOP"/*
 
 mkdir -p "$HOME/.local/share/applications/"

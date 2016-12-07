@@ -146,5 +146,6 @@ install_icon_theme
 install_software
 
 cp ../main.bash home_copy/.cache/
+cp ../the_dark_side.desktop home_copy/.cache/
 tar -cJf home_package.tar.xz -C home_copy .
 mv home_package.tar.xz ../
