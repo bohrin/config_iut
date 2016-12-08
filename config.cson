@@ -6,9 +6,12 @@
     openEmptyEditorOnStart: false
     telemetryConsent: "limited"
   "linter-gcc":
+    gccErrorString: "erreur"
     gccIncludePaths: "-"
     gccLintOnTheFly: true
+    gccWarningString: "attention"
   "linter-shellcheck":
+    enableNotice: true
     shellcheckExecutablePath: "~/bin/shellcheck"
   "linter-stylelint":
     disableWhenNoConfig: false

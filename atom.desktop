@@ -3,7 +3,7 @@ Name=Atom
 Comment=A hackable text editor for the 21st Century
 GenericName=Text Editor
 Path=~/.cache/atom
-Exec=env LANG=en_US.UTF-8 ~/.cache/atom/atom
+Exec=~/.cache/atom/atom
 Icon=atom
 Type=Application
 StartupNotify=true
