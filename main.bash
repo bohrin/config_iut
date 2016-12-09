@@ -50,6 +50,10 @@ echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"
 sed -i "s|~|$HOME|g" "$HOME/.atom/config.cson"
 sed -i "s/USER/$USER/g" "$HOME/.atom/data-atom-connections.cson"
 
+if g++ --version | grep -q "This is free software"; then
+  sed -i -e "/erreur/d" -e "/attention/d" "$HOME/.atom/config.cson"
+fi
+
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.profile
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bash_profile
 echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bashrc
