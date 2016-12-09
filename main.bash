@@ -54,10 +54,6 @@ if g++ --version | grep -q "This is free software"; then
   sed -i -e "/erreur/d" -e "/attention/d" "$HOME/.atom/config.cson"
 fi
 
-echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.profile
-echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bash_profile
-echo 'export PATH=$PATH:$HOME/bin' >> $HOME/.bashrc
-
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
 echo "[Filechooser Settings]" > "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
 echo "StartupMode=cwd" >> "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
