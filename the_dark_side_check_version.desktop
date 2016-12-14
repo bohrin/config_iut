@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=The Dark Side Check Version
+Comment=Tell when a new version is available
+Exec=bash ~/.cache/check_version.bash
+StartupNotify=false
+Terminal=false
+Icon=system-software-update

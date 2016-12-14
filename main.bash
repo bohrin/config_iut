@@ -43,6 +43,8 @@ xdg-mime default evince.desktop application/pdf application/x-bzpdf application/
 xdg-mime default xarchiver.desktop application/x-arj application/arj application/x-bzip application/x-bzip-compressed-tar application/x-gzip application/x-rar application/x-rar-compressed application/x-tar application/x-zip application/x-zip-compressed application/zip application/x-7z-compressed application/x-compressed-tar application/x-bzip2 application/x-bzip2-compressed-tar application/x-lzma-compressed-tar application/x-lzma application/x-deb application/deb application/x-xz application/x-xz-compressed-tar
 cp -f "$HOME/.local/share/applications/mimeapps.list" "$HOME/.config/"
 
+sed -i "s|~|$HOME|g" "$HOME/.config/autostart/the_dark_side_check_version.desktop"
+
 echo "WebBrowser=firefox" > "$HOME/.config/xfce4/helpers.rc"
 echo "FileManager=Thunar" >> "$HOME/.config/xfce4/helpers.rc"
 echo "TerminalEmulator=xfce4-terminal" >> "$HOME/.config/xfce4/helpers.rc"

@@ -146,7 +146,9 @@ install_theme
 install_icon_theme
 install_software
 
-cp ../main.bash home_copy/.cache/
-cp ../the_dark_side.desktop home_copy/.cache/
+mkdir -p home_copy/.config/autostart
+cp ../the_dark_side_check_version.desktop home_copy/.config/autostart/
+
+cp ../main.bash ../the_dark_side.desktop ../check_version.bash home_copy/.cache/
 tar -cJf home_package.tar.xz -C home_copy .
 mv home_package.tar.xz ../
