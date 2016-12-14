@@ -101,15 +101,15 @@ function install_icon_theme {
 
 function install_atom {
 	atom_version="$(git ls-remote --tags "https://github.com/atom/atom/" | sed "s|.*refs/tags/\(.*\)$|\1|g" | grep -v "beta" | sort -V | tail -n 1)"
-	mkdir -p home_copy/.cache/atom
+	mkdir -p home_copy/.cache/the_dark_side/atom
 	if [ ! -f "atom-amd64.tar.gz" ]; then
 		wget -c "https://github.com/atom/atom/releases/download/$atom_version/atom-amd64.tar.gz"
 	fi
 	tar -zxf "atom-amd64.tar.gz"
-	mv atom-*/* home_copy/.cache/atom
+	mv atom-*/* home_copy/.cache/the_dark_side/atom
 
 	mkdir -p home_copy/.local/share/{applications,icons}
-	cp home_copy/.cache/atom/atom.png home_copy/.local/share/icons/
+	cp home_copy/.cache/the_dark_side/atom/atom.png home_copy/.local/share/icons/
 	cp ../atom.desktop home_copy/.local/share/applications/
 	chmod u+x home_copy/.local/share/applications/
 }
@@ -118,7 +118,7 @@ function install_atom_packages {
 	mkdir -p home_copy/.atom/
 	ATOM_HOME="$(realpath home_copy/.atom/)"
 	export ATOM_HOME
-	home_copy/.cache/atom/resources/app/apm/bin/apm install --packages-file ../atom-packages.txt
+	home_copy/.cache/the_dark_side/atom/resources/app/apm/bin/apm install --packages-file ../atom-packages.txt
 
 	#config files
 	cp ../config.cson ../data-atom-connections.cson home_copy/.atom/
@@ -130,9 +130,9 @@ function install_shellcheck {
 	cd shellcheck || exit
 	wget -c -O shellcheck.tar.xz http://mir.archlinux.fr/community/os/x86_64/shellcheck-0.4.5-1-x86_64.pkg.tar.xz
 	tar -xf shellcheck.tar.xz
-	mkdir -p ../home_copy/bin
-	mv usr/bin/shellcheck ../home_copy/bin/
-	chmod u+x ../home_copy/bin/shellcheck
+	mkdir -p ../home_copy/.cache/the_dark_side/
+	mv usr/bin/shellcheck ../home_copy/.cache/the_dark_side/
+	chmod u+x ../home_copy/.cache/the_dark_side/shellcheck
 	cd ..
 }
 
@@ -149,6 +149,6 @@ install_software
 mkdir -p home_copy/.config/autostart
 cp ../the_dark_side_check_version.desktop home_copy/.config/autostart/
 
-cp ../main.bash ../the_dark_side.desktop ../check_version.bash home_copy/.cache/
+cp ../main.bash ../the_dark_side.desktop ../check_version.bash home_copy/.cache/the_dark_side/
 tar -cJf home_package.tar.xz -C home_copy .
 mv home_package.tar.xz ../

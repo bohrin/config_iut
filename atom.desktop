@@ -2,8 +2,8 @@
 Name=Atom
 Comment=A hackable text editor for the 21st Century
 GenericName=Text Editor
-Path=~/.cache/atom
-Exec=~/.cache/atom/atom
+Path=~/.cache/the_dark_side/atom
+Exec=~/.cache/the_dark_side/atom/atom
 Icon=atom
 Type=Application
 StartupNotify=true

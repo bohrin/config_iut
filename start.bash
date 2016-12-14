@@ -4,11 +4,11 @@ function install_package {
   local package_location
   package_location=$1
   echo "remove"
-  rm -rf "$HOME/.cache/atom" "$HOME/.atom/" "$HOME/.icons" "$HOME/.themes"
+  rm -rf "$HOME/.cache/the_dark_side" "$HOME/.atom" "$HOME/.icons" "$HOME/.themes"
   echo "extract"
   tar --xz --extract --file "$package_location" --directory "$HOME"
   echo "install"
-  bash "$HOME/.cache/main.bash"
+  bash "$HOME/.cache/the_dark_side/main.bash"
 }
 
 if curl -sL "https://github.com/L0L022/the_dark_side" | grep "html"; then
@@ -21,10 +21,10 @@ else
 fi
 echo "repo_name: $repo_name"
 package_name="home_package.tar.xz"
-package_location="$HOME/.cache/$package_name"
-package_version_location="$HOME/.cache/home_package_version"
+package_location="$HOME/.cache/the_dark_side/$package_name"
+package_version_location="$HOME/.cache/the_dark_side/home_package_version"
 
-package_installed_version="$(cat "$HOME/.cache/home_package_version")"
+package_installed_version="$(cat "$package_version_location")"
 if [ "$package_installed_version" ]; then
   echo "package_installed_version: $package_installed_version"
 else
@@ -57,8 +57,8 @@ else
 fi
 
 echo "install crazy_patch.bash"
-curl -sL -o "$HOME/.cache/crazy_patch.bash" "https://raw.githubusercontent.com/L0L022/$repo_name/master/crazy_patch.bash"
-bash "$HOME/.cache/crazy_patch.bash"
+curl -sL -o "$HOME/.cache/the_dark_side/crazy_patch.bash" "https://raw.githubusercontent.com/L0L022/$repo_name/master/crazy_patch.bash"
+bash "$HOME/.cache/the_dark_side/crazy_patch.bash"
 
 echo "update atom packages"
-"$HOME/.cache/atom/resources/app/apm/bin/apm" upgrade --no-confirm
+"$HOME/.cache/the_dark_side/atom/resources/app/apm/bin/apm" upgrade --no-confirm

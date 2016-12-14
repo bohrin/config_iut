@@ -12,7 +12,7 @@
     gccWarningString: "attention"
   "linter-shellcheck":
     enableNotice: true
-    shellcheckExecutablePath: "~/bin/shellcheck"
+    shellcheckExecutablePath: "~/.cache/the_dark_side/shellcheck"
   "linter-stylelint":
     disableWhenNoConfig: false
     useStandard: true
