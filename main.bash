@@ -57,5 +57,6 @@ if g++ --version | grep -q "This is free software"; then
 fi
 
 gsettings set org.gtk.Settings.FileChooser startup-mode cwd
+mkdir -p "$HOME/.config/gtk-2.0/"
 echo "[Filechooser Settings]" > "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
 echo "StartupMode=cwd" >> "$HOME/.config/gtk-2.0/gtkfilechooser.ini"
