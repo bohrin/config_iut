@@ -21,7 +21,7 @@ else
 fi
 echo "repo_name: $repo_name"
 package_name="home_package.tar.xz"
-package_location="$HOME/.cache/the_dark_side/$package_name"
+package_location="$HOME/.cache/$package_name"
 package_version_location="$HOME/.cache/the_dark_side/home_package_version"
 
 package_installed_version="$(cat "$package_version_location")"
